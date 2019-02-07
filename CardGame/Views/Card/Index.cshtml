@@ -1,0 +1,28 @@
+﻿@model CardGame.ViewModels.CardViewModel
+
+@{
+    ViewData["Title"] = "Card Game";
+}
+
+<h2>Mini gra w karty</h2>
+
+<div>
+    <form asp-controller="Card" asp-action="SetDecksCount">
+        <label class="text-left">Ilość talii:</label>
+        <input class="input-sm" type="number" name="count" />
+        <button class="btn btn-default" type="submit">Potwierdź</button>
+    </form>
+    <p>
+        <a class="btn btn-primary" asp-controller="Card" asp-action="Shuffle">Mieszaj</a> @*bigos kolanem*@
+    </p>
+    <p>
+        <a class="btn btn-primary" asp-controller="Card" asp-action="Sort">Sortuj</a>
+    </p>
+    <p>
+        <a class="btn btn-default" asp-controller="Card" asp-action="Draw">Zdejmij i podejrzyj</a>
+        <label class="text-left">Karta: @Model?.CardName</label>
+    </p>
+    <p>
+        <label class="text-left">Aktualna ilość w talii: @Model?.CardsInPool</label>
+    </p>
+</div>
